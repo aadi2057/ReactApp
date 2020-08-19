@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { Navbar, NavbarBrand } from 'reactstrap';
+import { Navbar, NavbarBrand, NavItem, NavLink, Nav, NavbarToggler, Collapse } from 'reactstrap';
 import Menu from './components/MenuComponent';
+import Detail from './components/dishDetailComponent';
 import './App.css';
-import { Dishes, DISHES } from './shared/dishes';
+import { DISHES } from './shared/dishes';
 
 class App extends Component {
 
@@ -11,19 +12,24 @@ class App extends Component {
     super(props);
 
     this.state ={
-      dishes: DISHES
+      dishes: DISHES,
+      selectedDish: null
     };
+  }
+  onDishSelect(dish){
+    this.setState({ selectedDish: dish});
   }
 
   render(){
     return (
-      <div className="App">
+      <div className="App" expand="lg">
         <Navbar dark color="primary">
           <div className="container">
-            <NavbarBrand href="/">Ristornate Con Fusion</NavbarBrand>
+            <NavbarBrand href="/" className="mr-auto">Ristornate Con Fusion</NavbarBrand>
           </div>
         </Navbar>
-        <Menu dishes= {this.state.dishes}></Menu>
+        <Menu dishes= {this.state.dishes} onDishSelect ={this.onDishSelect.bind(this)}></Menu>
+        <Detail selectedDish= {this.state.selectedDish}></Detail>
       </div>
       
     );
