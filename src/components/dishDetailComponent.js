@@ -71,10 +71,10 @@ class Detail extends Component{
             <div className="row">
             
               <div className="col-md-5 m-1">
-                {this.renderDish(this.props.selectedDish)}
+                {this.renderDish(this.props.dish)}
               </div>
               <div className="col-md-5 m-1 d-flex">
-                {this.renderComments(this.props.selectedDish)}
+                {this.renderComments(this.props.dish)}
               </div>
             </div>
           </div>
