@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Navbar, NavbarBrand, NavItem, NavLink, Nav, NavbarToggler, Collapse } from 'reactstrap';
 import Menu from './components/MenuComponent';
-import Detail from './components/dishDetailComponent';
+// import Detail from './components/dishDetailComponent';
 import './App.css';
 import { DISHES } from './shared/dishes';
 
@@ -13,11 +13,8 @@ class App extends Component {
 
     this.state ={
       dishes: DISHES,
-      selectedDish: null
+      
     };
-  }
-  onDishSelect(dish){
-    this.setState({ selectedDish: dish});
   }
 
   render(){
@@ -28,8 +25,8 @@ class App extends Component {
             <NavbarBrand href="/" className="mr-auto">Ristornate Con Fusion</NavbarBrand>
           </div>
         </Navbar>
-        <Menu dishes= {this.state.dishes} onDishSelect ={this.onDishSelect.bind(this)}></Menu>
-        <Detail selectedDish= {this.state.selectedDish}></Detail>
+        <Menu dishes= {this.state.dishes} ></Menu>
+        
       </div>
       
     );

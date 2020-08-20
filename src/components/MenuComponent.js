@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { render } from '@testing-library/react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
-// import Detail from './comments/dishDetailComponent';
+import Detail from './dishDetailComponent';
 // import React, { Component } from 'react';
 // import { Media } from 'reactstrap';
 
@@ -9,18 +9,20 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            selectedDish: null
           };
     }
     
-
+    onDishSelect(dish) {
+      this.setState({selectedDish: dish})
+    }
     
     
     render() {
         const menu = this.props.dishes.map((dish) => {
             return (
               <div key={dish.id} className="col-12 col-md-5 m-1">
-                <Card onClick={() => this.props.onDishSelect(dish)}>
+                <Card onClick={() => this.onDishSelect(dish)}>
                   <CardImg width="100%" src={dish.image} alt={dish.name} />
                   <CardImgOverlay>
                     <CardTitle><h4>{dish.name}</h4></CardTitle>
@@ -37,7 +39,9 @@ class Menu extends Component {
                   {menu}
               
             </div>
-            
+            <div className="row">
+              <Detail selectedDish= {this.state.selectedDish}></Detail>
+            </div>
           </div>
           
         );
