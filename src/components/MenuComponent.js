@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
-import Detail from './dishDetailComponent';
+
 
     function RenderMenuItem({dish, onClick}) {
       return(
