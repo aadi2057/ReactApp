@@ -48,9 +48,9 @@ import { Control, LocalForm, Errors} from 'react-redux-form';
 
       handleSubmit(values){
         this.toggleModal();
-
-        console.log("Current State: "+ JSON.stringify(values));
-        alert("Current State: "+ JSON.stringify(values));
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        // console.log("Current State: "+ JSON.stringify(values));
+        // alert("Current State: "+ JSON.stringify(values));
     }
 
       render(){
@@ -74,9 +74,9 @@ import { Control, LocalForm, Errors} from 'react-redux-form';
                       </Col>
                     </Row>
                     <Row className="form-group">
-                      <Label md={12} htmlFor="name">Your Name</Label>
+                      <Label md={12} htmlFor="author">Your Name</Label>
                       <Col md={12}>
-                        <Control.text className="form-control" model=".authorName"
+                        <Control.text id="author" name="author" className="form-control" model=".author"
                         validators={{
                           required, minLength: minLength(3), maxLength: maxLength(15)
                         }} name="authorName" placeholder="Your Name"/>
@@ -109,7 +109,7 @@ import { Control, LocalForm, Errors} from 'react-redux-form';
 
     }
 
-    function RenderComments({comments}){
+    function RenderComments({comments, addComment, dishId}){
       
       if(comments != null) {
         const commentsList = comments.map((comment) => {
@@ -133,7 +133,7 @@ import { Control, LocalForm, Errors} from 'react-redux-form';
             <ul className="list-unstyled">
             {commentsList}
             </ul>
-            <CommentForm>
+            <CommentForm dishId={dishId} addComment={addComment}>
 
             </CommentForm>
           </div>
@@ -169,7 +169,9 @@ import { Control, LocalForm, Errors} from 'react-redux-form';
               <RenderDish dish={props.dish}></RenderDish>
             </div>
             <div className="col-md-5 m-1 d-flex">
-              <RenderComments comments={props.comments}></RenderComments>
+              <RenderComments comments={props.comments} 
+               addComment={props.addComment}
+               dishId={props.dish.id}></RenderComments>
             </div>
           </div>
         </div>
