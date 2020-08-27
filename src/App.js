@@ -14,11 +14,11 @@ class App extends Component {
   render(){
     return (
       <Provider store={store}>
-      <BrowserRouter>
-        <div>
-          <Main ></Main>
-        </div>
-      </BrowserRouter>
+        <BrowserRouter>
+          <div>
+            <Main ></Main>
+          </div>
+        </BrowserRouter>
       </Provider>
     );
   }
