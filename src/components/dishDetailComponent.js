@@ -3,13 +3,14 @@ import {Card, CardImg, CardTitle, CardText, CardBody, Breadcrumb, BreadcrumbItem
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors} from 'react-redux-form';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
   
     function RenderDish({dish}){
       if(dish != null){
         return(
           <Card className="text-left">
-            <CardImg width="100%" src={dish.image} alt={dish.name} />
+            <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
             <CardBody>
               <CardTitle><h4>{dish.name} <span className="badge badge-danger">{dish.label}</span></h4> </CardTitle>
               <CardText>{dish.description}</CardText>
