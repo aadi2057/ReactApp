@@ -37,7 +37,7 @@ class Header extends Component{
     render() {
         return(
             <React.Fragment>
-                <Navbar dark expand="md">
+                <Navbar dark fixed expand="md">
                     <div className="container">
                         <NavbarBrand className="mr-auto" href="/" className="mr-auto">
                             <img src="assets/images/logo.png" height="30" width="41" alt="Ristorante Con Fusion" />
