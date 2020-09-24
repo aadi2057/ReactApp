@@ -22,7 +22,7 @@ function RenderCard({item, isLoading, errMess}) {
                     exitTransform: 'scale(0.5) translateY(-50%)'
                 }}>
                 <Card>
-                    <CardImg src={baseUrl + item.image} alt={item.name} />
+                    <CardImg src={baseUrl + item.image} alt={item.name} height="400" />
                     <CardBody>
                         <CardTitle><h4>{item.name}</h4></CardTitle>
                         {item.designation ? <CardSubtitle><h6>{item.designation}</h6></CardSubtitle>:null}
